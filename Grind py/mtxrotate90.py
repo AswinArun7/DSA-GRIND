@@ -5,8 +5,18 @@ mtx=[[1,2,3],
 # rot=list(row[::-1] for row in tran)
 # print(rot)
  
-tran=list(map(list,zip(*mtx)))
-for i in tran:
-    i.reverse()
+# tran=list(map(list,zip(*mtx)))
+# for i in tran:
+#     i.reverse()
+# mtx[:]=tran    
 
-print(tran)    
+# print(mtx)
+
+n=len(mtx)
+for i in range(n):
+    for j in range(i+1,n):
+        mtx[i][j],mtx[j][i]=mtx[j][i],mtx[i][j]
+for i in range(n):
+    mtx[i].reverse()
+
+print(mtx)    
