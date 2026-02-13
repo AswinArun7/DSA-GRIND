@@ -1,7 +1,20 @@
 def sort123(nums):
-    count1 = nums.count(1)
-    count2 = nums.count(2)
-    count3 = nums.count(3)
+    low = 0
+    mid = 0
+    high = len(nums) - 1
 
-    nums[:] = [1]*count1 + [2]*count2 + [3]*count3
+    while mid <= high:
+
+        if nums[mid] == 1:
+            nums[low], nums[mid] = nums[mid], nums[low]
+            low += 1
+            mid += 1
+
+        elif nums[mid] == 2:
+            mid += 1
+
+        else:  # nums[mid] == 3
+            nums[mid], nums[high] = nums[high], nums[mid]
+            high -= 1
+
     return nums
